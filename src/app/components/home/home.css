@@ -1,55 +1,79 @@
+/* Container */
 .welcome-container {
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom right, #fdf6e3, #d4b3ff);
-  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f0eaff, #c1b3ff);
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
 }
 
+/* Welcome Box */
 .welcome-box {
   display: flex;
   flex-direction: column;
-  background: #fff;
-  height:50vh;
-  width:40vw;
-  padding: 2rem 3rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 3rem 4rem;
+  border-radius: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   text-align: center;
+  max-width: 450px;
+  width: 90%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.welcome-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon */
 .welcome-box .icon {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
+  animation: bounce 2s infinite;
 }
 
-.welcome-box h1 {
-  font-size: 2.5rem;
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Title */
+.welcome-box .title {
+  font-size: 2.8rem;
+  font-weight: 700;
   color: #4b0082;
   margin-bottom: 0.5rem;
+  letter-spacing: 1px;
 }
 
-.welcome-box p {
-  font-size: 1.2rem;
-  color: #555;
+/* Tagline */
+.welcome-box .tagline {
+  font-size: 1.3rem;
+  color: #6e6e6e;
+  margin-bottom: 2rem;
+  line-height: 1.5;
 }
 
+/* Button */
 .get-started-btn {
-
-  margin-top: 2rem;
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   border: none;
-  border-radius: 999px;
-  background: #6a0dad;
-  color: white;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #6a0dad, #8a2be2);
+  color: #fff;
   font-size: 1.2rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(106, 13, 173, 0.3);
 }
 
 .get-started-btn:hover {
-  transform: scale(1.05);
-  background: #8a2be2;
+  transform: scale(1.1);
+  box-shadow: 0 12px 25px rgba(106, 13, 173, 0.4);
+  background: linear-gradient(135deg, #8a2be2, #6a0dad);
 }

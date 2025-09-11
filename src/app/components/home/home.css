@@ -1,11 +1,11 @@
-/* Container */
+/* Body Container */
 .welcome-container {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #f0eaff, #c1b3ff);
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Welcome Box */
@@ -33,16 +33,20 @@
 .welcome-box .icon {
   font-size: 4rem;
   margin-bottom: 1rem;
-  animation: bounce 2s infinite;
+  color: #6a0dad;
+  animation: spinBounce 2.5s infinite;
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+@keyframes spinBounce {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(10deg) translateY(-5px); }
+  50% { transform: rotate(0deg) translateY(-10px); }
+  75% { transform: rotate(-10deg) translateY(-5px); }
 }
 
 /* Title */
 .welcome-box .title {
+  font-family: 'Montserrat', sans-serif;
   font-size: 2.8rem;
   font-weight: 700;
   color: #4b0082;
@@ -66,7 +70,7 @@
   background: linear-gradient(135deg, #6a0dad, #8a2be2);
   color: #fff;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 8px 20px rgba(106, 13, 173, 0.3);
@@ -76,4 +80,24 @@
   transform: scale(1.1);
   box-shadow: 0 12px 25px rgba(106, 13, 173, 0.4);
   background: linear-gradient(135deg, #8a2be2, #6a0dad);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .welcome-box {
+    padding: 2rem 2.5rem;
+  }
+  .welcome-box .title {
+    font-size: 2.2rem;
+  }
+  .welcome-box .tagline {
+    font-size: 1.1rem;
+  }
+  .welcome-box .icon {
+    font-size: 3rem;
+  }
+  .get-started-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
 }

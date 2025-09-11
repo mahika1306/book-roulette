@@ -31,8 +31,7 @@
 
 /* Icon */
 .welcome-box .icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
+  font-size: 5rem;
   color: #6a0dad;
   animation: spinBounce 2.5s infinite;
 }
@@ -94,7 +93,7 @@
     font-size: 1.1rem;
   }
   .welcome-box .icon {
-    font-size: 3rem;
+    font-size: 4rem;
   }
   .get-started-btn {
     padding: 0.8rem 2rem;

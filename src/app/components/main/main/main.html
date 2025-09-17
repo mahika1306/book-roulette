@@ -1,33 +1,37 @@
 <div class="book-page-container">
+  <!-- Top Bar -->
   <div class="top-bar">
-    <input type="text" placeholder="🔍 Search books..." class="search-bar">
-    <button class="add-book-btn">+ Add Book</button>
+    <!-- Search with Autocomplete -->
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-icon matPrefix>search</mat-icon>
+      <input
+        type="text"
+        placeholder="Search books..."
+        aria-label="Search books"
+        matInput
+        [formControl]="searchControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectBook($event.option.value)">
+        <mat-option *ngFor="let book of filteredBooks | async" [value]="book.title">
+          <div class="option-item">
+            <img [src]="book.cover" alt="cover" class="option-cover" />
+            <div>
+              <div class="option-title">{{ book.title }}</div>
+              <div class="option-author">{{ book.author }}</div>
+            </div>
+          </div>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
   </div>
 
   <div class="book-grid">
-    <!-- Example book tiles -->
-    <div class="book-tile">
-      <div class="book-cover">📘</div>
-      <h3 class="book-title">Book Title 1</h3>
-      <p class="book-author">by Author Name</p>
-    </div>
-
-    <div class="book-tile">
-      <div class="book-cover">📙</div>
-      <h3 class="book-title">Book Title 2</h3>
-      <p class="book-author">by Author Name</p>
-    </div>
-
-    <div class="book-tile">
-      <div class="book-cover">📗</div>
-      <h3 class="book-title">Book Title 3</h3>
-      <p class="book-author">by Author Name</p>
-    </div>
-
-    <div class="book-tile">
-      <div class="book-cover">📕</div>
-      <h3 class="book-title">Book Title 4</h3>
-      <p class="book-author">by Author Name</p>
+    <div class="book-tile" *ngFor="let book of selectedBooks">
+      <img [src]="book.cover" alt="cover" class="book-cover" />
+      <h3 class="book-title">{{ book.title }}</h3>
+      <p class="book-author">{{ book.author }}</p>
     </div>
   </div>
 </div>

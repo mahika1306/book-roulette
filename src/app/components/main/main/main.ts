@@ -8,11 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-interface Book {
-  title: string;
-  author: string;
-  cover: string;
-}
+import { BookGrid } from '../../book-grid/book-grid';
+
 @Component({
   selector: 'app-main',
  imports: [
@@ -22,45 +19,29 @@ interface Book {
     MatInputModule,
     MatAutocompleteModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    BookGrid
   ],
   templateUrl: './main.html',
   styleUrl: './main.css'
 })
 export class Main {
   searchControl = new FormControl('');
-  books: Book[] = [
-    { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', cover: 'https://picsum.photos/200?random=1' },
-    { title: 'To Kill a Mockingbird', author: 'Harper Lee', cover: 'https://picsum.photos/200?random=2' },
-    { title: '1984', author: 'George Orwell', cover: 'https://picsum.photos/200?random=3' },
-    { title: 'Pride and Prejudice', author: 'Jane Austen', cover: 'https://picsum.photos/200?random=4' },
-    { title: 'Harry Potter', author: 'J.K. Rowling', cover: 'https://picsum.photos/200?random=5' }
-  ];
 
-  filteredBooks!: Observable<Book[]>;
-  selectedBooks: Book[] = [];
+
+  filteredBooks!: Observable<any>;
+  selectedBooks: any[] = [];
 
   ngOnInit() {
-    this.filteredBooks = this.searchControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || ''))
-    );
+;
   }
 
-  private _filter(value: string): Book[] {
-    const filterValue = value.toLowerCase();
-    return this.books.filter(book =>
-      book.title.toLowerCase().includes(filterValue)
-    );
+  private _filter(value: string) {
+
   }
 
   selectBook(title: string) {
-    const book = this.books.find(b => b.title === title);
-    if (book && !this.selectedBooks.includes(book)) {
-      this.selectedBooks.push(book);
-    }
-    this.searchControl.setValue(''); // clear input after selection
-  }  
-
+    
 }
 
+}

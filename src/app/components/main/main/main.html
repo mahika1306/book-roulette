@@ -26,12 +26,9 @@
     </mat-form-field>
 
   </div>
-
   <div class="book-grid">
-    <div class="book-tile" *ngFor="let book of selectedBooks">
-      <img [src]="book.cover" alt="cover" class="book-cover" />
-      <h3 class="book-title">{{ book.title }}</h3>
-      <p class="book-author">{{ book.author }}</p>
-    </div>
+    <app-book-grid></app-book-grid>
   </div>
+
+
 </div>

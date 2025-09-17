@@ -1,0 +1,7 @@
+<div class="book-grid">
+  @for(book of books ;track $index) {
+  <div class="book-tile">
+    <app-books [book]="book"></app-books>
+  </div>
+  }
+</div>

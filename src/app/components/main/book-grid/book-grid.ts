@@ -8,7 +8,7 @@ interface Book {
 }
 @Component({
   selector: 'app-book-grid',
-  imports: [CommonModule,Books],
+  imports: [Books],
   templateUrl: './book-grid.html',
   styleUrl: './book-grid.css'
 })

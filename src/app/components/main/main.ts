@@ -61,6 +61,11 @@ export class Main {
   }
 
   selectBook(title: string) {
+    if(!this.selectedBooks.find(book => book.title === title)) {
+        this.selectedBooks.push(this.books.find(book => book.title === title));
+    }
+  
+    this.searchControl.setValue('');
     
 }
 

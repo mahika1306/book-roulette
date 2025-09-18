@@ -1,6 +1,20 @@
-  <div>
-      <img [src]="book.cover" alt="cover" class="book-cover" />
+<ng-container>
+  @if(view==='grid'){
+  <div class="book-grid">
+    <img [src]="book.cover" alt="cover" class="book-cover" />
       <h3 class="book-title">{{ book.title }}</h3>
       <p class="book-author">{{ book.author }}</p>
   </div>
 
+  } @else{
+
+  <div class="option-item">
+    <img [src]="book.cover" alt="cover" class="option-cover" />
+    <div>
+      <div class="option-title">{{ book.title }}</div>
+      <div class="option-author">{{ book.author }}</div>
+    </div>
+  </div>
+
+  }
+</ng-container>

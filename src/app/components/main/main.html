@@ -13,22 +13,15 @@
         [matAutocomplete]="auto"
       />
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectBook($event.option.value)">
-        <mat-option *ngFor="let book of filteredBooks | async" [value]="book.title">
-          <div class="option-item">
-            <img [src]="book.cover" alt="cover" class="option-cover" />
-            <div>
-              <div class="option-title">{{ book.title }}</div>
-              <div class="option-author">{{ book.author }}</div>
-            </div>
-          </div>
+        @for(book of filteredBooks|async;track $index){
+        <mat-option [value]="book.title" >
+       <app-books [book]="book" view="list"></app-books>
         </mat-option>
+        }
       </mat-autocomplete>
     </mat-form-field>
-
   </div>
   <div class="book-grid">
-    <app-book-grid></app-book-grid>
+    <app-book-grid [books]="books"></app-book-grid>
   </div>
-
-
 </div>

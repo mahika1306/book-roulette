@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class Books {
   @Input() book!: { title: string; author: string; cover: string };
+  @Input()view:'grid'|'list'='grid';
 
 }
